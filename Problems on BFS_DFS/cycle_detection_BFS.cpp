@@ -1,4 +1,4 @@
-bool detectcycle(int src, vector<vector<int>>& edges, int visited[]){
+bool detectcycle(int src, vector<vector<int>>& adj, int visited[]){
     queue<pair<int,int>> q;
     visited[src]=1;
     q.push({src,-1});
@@ -7,7 +7,7 @@ bool detectcycle(int src, vector<vector<int>>& edges, int visited[]){
         int node=q.front().first;
         int parent=q.front().second;
         q.pop();
-        for(auto it:edges[node]){
+        for(auto it:adj[node]){
             if(!visited[it]){
                 visited[it]=1;
                 q.push({it,node});
